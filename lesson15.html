@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJ43JP9F');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lezione 15: Metodo POST</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#dfe7f3);
+color:#2c3e50;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1{
+font-size:36px;
+text-align:center;
+margin-bottom:10px;
+color:#1c355e;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+color:#566573;
+margin-bottom:30px;
+}
+
+.section-title{
+font-size:24px;
+margin-top:35px;
+color:#1c355e;
+border-bottom:2px solid #e6ecf5;
+padding-bottom:10px;
+}
+
+p{
+line-height:1.8;
+margin-top:15px;
+}
+
+ul{
+line-height:1.9;
+margin-top:15px;
+}
+
+.code-box{
+background:#f4f6f9;
+padding:15px;
+border-radius:8px;
+font-family:Consolas, monospace;
+margin-top:15px;
+}
+
+.buttons{
+text-align:center;
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+color:white;
+transition:0.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.english{background:#2c7be5;}
+.portuguese{background:#28a745;}
+.italian{background:#f59e0b;}
+.french{background:#6f42c1;}
+.curriculum{background:#20c997;}
+
+.footer{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+color:#7b8a97;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>Lezione 15: Metodo POST</h1>
+
+<p class="subtitle">
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
+</p>
+
+<p>
+Il metodo <strong>POST</strong> viene utilizzato nelle REST API per creare nuove risorse sul server.
+A differenza del metodo GET, che recupera dati, POST invia dati dal client
+al server affinché venga creato un nuovo record.
+</p>
+
+<p>
+Le richieste POST includono normalmente dati nel corpo della richiesta,
+di solito formattati come JSON. Il server elabora i dati, esegue la validazione
+e memorizza la nuova risorsa nel database.
+</p>
+
+<h2 class="section-title">Scopo del Metodo POST</h2>
+
+<p>
+Il metodo POST consente ai client di inviare nuovi dati al server. Questo viene
+comunemente utilizzato quando si creano nuovi record in un sistema.
+</p>
+
+<p>Esempi tipici includono:</p>
+
+<ul>
+<li>Creare un nuovo prodotto</li>
+<li>Registrare un nuovo utente</li>
+<li>Aggiungere un nuovo ordine</li>
+<li>Inviare un modulo</li>
+</ul>
+
+<h2 class="section-title">Esempio di Richiesta POST</h2>
+
+<p>
+Una richiesta POST invia normalmente dati JSON nel corpo della richiesta.
+</p>
+
+<div class="code-box">
+POST /api/products
+</div>
+
+<p>Corpo della richiesta:</p>
+
+<div class="code-box">
+{
+ "name": "Wireless Mouse",
+ "price": 25,
+ "stock": 50
+}
+</div>
+
+<p>
+Questa richiesta chiede al server di creare un nuovo prodotto utilizzando i dati forniti.
+</p>
+
+<h2 class="section-title">Elaborazione sul Server</h2>
+
+<p>
+Quando il server riceve una richiesta POST, di solito esegue diversi passaggi:
+</p>
+
+<ul>
+<li>Validare i dati di input</li>
+<li>Creare un nuovo oggetto basato sul modello</li>
+<li>Salvare il record nel database</li>
+<li>Restituire una risposta al client</li>
+</ul>
+
+<h2 class="section-title">Esempio di Risposta</h2>
+
+<p>
+Se l’operazione ha successo, il server può restituire una risposta come questa:
+</p>
+
+<div class="code-box">
+{
+ "id": 10,
+ "name": "Wireless Mouse",
+ "price": 25,
+ "stock": 50
+}
+</div>
+
+<p>
+La risposta spesso include la risorsa appena creata insieme al suo identificatore generato.
+</p>
+
+<h2 class="section-title">Codici di Stato HTTP per POST</h2>
+
+<ul>
+<li><strong>201 Created</strong> – Risorsa creata con successo</li>
+<li><strong>400 Bad Request</strong> – Dati della richiesta non validi</li>
+<li><strong>500 Internal Server Error</strong> – Errore di elaborazione del server</li>
+</ul>
+
+<p>
+Restituire i codici di stato corretti aiuta i client a comprendere il risultato della richiesta.
+</p>
+
+<h2 class="section-title">Testare le Richieste POST</h2>
+
+<p>
+Le richieste POST possono essere testate utilizzando strumenti come Postman.
+Gli sviluppatori possono inviare dati JSON nel corpo della richiesta e osservare
+la risposta dell’API.
+</p>
+
+<p>Esempio di endpoint testato in Postman:</p>
+
+<div class="code-box">
+https://localhost:5001/api/products
+</div>
+
+<h2 class="section-title">Buone Pratiche</h2>
+
+<ul>
+<li>Validare i dati di input prima di salvarli</li>
+<li>Restituire codici di stato HTTP appropriati</li>
+<li>Utilizzare strutture JSON chiare</li>
+<li>Garantire che le operazioni sul database siano sicure</li>
+</ul>
+
+<p>
+Seguire queste pratiche garantisce che gli endpoint POST rimangano affidabili
+e sicuri nei sistemi REST API.
+</p>
+
+<h2 class="section-title">Prossimi Passi</h2>
+
+<p>
+Dopo aver implementato il metodo POST, il passo successivo è implementare
+altri metodi come PUT e DELETE, consentendo la piena funzionalità CRUD
+all’interno della REST API.
+</p>
+
+
+<div class="buttons">
+
+<a class="btn english" href="https://www.udemy.com/course/rest-api-development-build-test-troubleshoot/" target="_blank">
+View Course (English)
+</a>
+
+<a class="btn portuguese" href="https://www.udemy.com/course/desenvolvimento-de-api-rest-construir-testar-solucionar/" target="_blank">
+Ver Curso (Português)
+</a>
+
+<a class="btn italian" href="https://www.udemy.com/course/sviluppo-api-rest-costruisci-testa-risolvi/" target="_blank">
+Vedi Corso (Italiano)
+</a>
+
+<a class="btn french" href="https://www.udemy.com/course/developpement-dapi-rest-construire-tester-depanner/" target="_blank">
+Voir le cours (Français)
+</a>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn curriculum" href="Contenido.html">
+Torna alla pagina del corso
+</a>
+
+</div>
+
+<div class="footer">
+Lezione 15 – Corso di sviluppo REST API.
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
