@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="it">
 <head>
 
 <!-- Google Tag Manager -->
@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Leçon 10 : Création de modèles</title>
+<title>Lezione 10: Creazione dei Modelli</title>
 
 <style>
 
@@ -118,46 +118,46 @@ color:#7b8a97;
 <div class="container">
 <div class="card">
 
-<h1>Leçon 10 : Création de modèles</h1>
+<h1>Lezione 10: Creazione dei Modelli</h1>
 
 <p class="subtitle">
-Développement d'API REST : Construire, Tester, Dépanner
+Sviluppo di API REST: Costruire, Testare, Risolvere Problemi
 </p>
 
 <p>
-Les modèles sont une partie fondamentale du développement d’API REST. Un modèle
-représente la structure des données avec lesquelles l’API travaille. Il définit
-les propriétés et les types qui décrivent une ressource dans le système.
+I modelli sono una parte fondamentale dello sviluppo di API REST. Un modello rappresenta la struttura
+dei dati con cui l'API lavora. Definisce le proprietà e i tipi che descrivono
+una risorsa all'interno del sistema.
 </p>
 
 <p>
-En créant des modèles bien structurés, les développeurs s’assurent que les données
-peuvent être manipulées de manière cohérente dans toute l’application, depuis la
-couche de base de données jusqu’aux réponses API renvoyées aux clients.
+Creando modelli ben strutturati, gli sviluppatori garantiscono che i dati possano essere gestiti
+in modo coerente in tutta l'applicazione, dal livello del database fino alle risposte API
+restituite ai client.
 </p>
 
-<h2 class="section-title">Qu’est-ce qu’un modèle ?</h2>
+<h2 class="section-title">Cos'è un Modello?</h2>
 
 <p>
-Un modèle est une classe qui représente une entité dans le système. Par exemple,
-une API de commerce électronique peut inclure des modèles tels que :
+Un modello è una classe che rappresenta un'entità nel sistema. Ad esempio,
+un'API di e-commerce potrebbe includere modelli come:
 </p>
 
 <ul>
-<li>Produit</li>
-<li>Client</li>
-<li>Commande</li>
-<li>Fournisseur</li>
+<li>Product</li>
+<li>Customer</li>
+<li>Order</li>
+<li>Supplier</li>
 </ul>
 
 <p>
-Chaque modèle contient des propriétés qui décrivent l’entité.
+Ogni modello contiene proprietà che descrivono l'entità.
 </p>
 
-<h2 class="section-title">Exemple de modèle Product</h2>
+<h2 class="section-title">Esempio di Modello Product</h2>
 
 <p>
-Voici un exemple simple d’un modèle Product utilisé dans une API REST :
+Di seguito è riportato un semplice esempio di un modello Product utilizzato in una API REST:
 </p>
 
 <div class="code-box">
@@ -174,29 +174,29 @@ public class Product
 </div>
 
 <p>
-Ce modèle définit la structure des données produit que l’API va
-stocker, récupérer et retourner aux clients.
+Questo modello definisce la struttura dei dati dei prodotti che l'API
+memorizzerà, recupererà e restituirà ai client.
 </p>
 
-<h2 class="section-title">Pourquoi les modèles sont importants</h2>
+<h2 class="section-title">Perché i Modelli Sono Importanti</h2>
 
 <p>
-Les modèles offrent plusieurs avantages importants dans la conception d’API REST :
+I modelli offrono diversi vantaggi importanti nella progettazione di API REST:
 </p>
 
 <ul>
-<li>Ils définissent une structure de données claire</li>
-<li>Ils rendent le code plus facile à maintenir</li>
-<li>Ils permettent un échange de données cohérent entre les systèmes</li>
-<li>Ils aident à mapper les données de l’application aux tables de base de données</li>
+<li>Definiscono una struttura dati chiara</li>
+<li>Rendono il codice più facile da mantenere</li>
+<li>Permettono uno scambio di dati coerente tra sistemi</li>
+<li>Aiutano a mappare i dati dell'applicazione alle tabelle del database</li>
 </ul>
 
-<h2 class="section-title">Utilisation des modèles dans les contrôleurs</h2>
+<h2 class="section-title">Uso dei Modelli nei Controller</h2>
 
 <p>
-Les contrôleurs utilisent les modèles pour envoyer et recevoir des données.
-Par exemple, un contrôleur peut retourner une liste de modèles Product lorsqu’un
-client demande des informations sur les produits.
+I controller utilizzano i modelli per inviare e ricevere dati. Ad esempio,
+un controller potrebbe restituire una lista di modelli Product quando un client
+richiede informazioni sui prodotti.
 </p>
 
 <div class="code-box">
@@ -204,8 +204,8 @@ GET /api/products
 </div>
 
 <p>
-Le serveur traite la requête et renvoie une réponse JSON
-basée sur la structure du modèle Product.
+Il server elabora la richiesta e restituisce una risposta JSON
+basata sulla struttura del modello Product.
 </p>
 
 <div class="code-box">
@@ -219,27 +219,26 @@ basée sur la structure du modèle Product.
 ]
 </div>
 
-<h2 class="section-title">Bonnes pratiques pour les modèles</h2>
+<h2 class="section-title">Buone Pratiche per i Modelli</h2>
 
 <ul>
-<li>Gardez les modèles simples et ciblés</li>
-<li>Utilisez des noms de propriétés significatifs</li>
-<li>Utilisez des types de données appropriés</li>
-<li>Évitez d’ajouter la logique métier directement dans les modèles</li>
+<li>Mantieni i modelli semplici e focalizzati</li>
+<li>Usa nomi di proprietà significativi</li>
+<li>Usa tipi di dati appropriati</li>
+<li>Evita di aggiungere logica di business direttamente nei modelli</li>
 </ul>
 
 <p>
-Suivre ces pratiques aide à maintenir une architecture
-d’API REST propre et évolutive.
+Seguire queste pratiche aiuta a mantenere un'architettura
+di API REST pulita e scalabile.
 </p>
 
-<h2 class="section-title">Étapes suivantes</h2>
+<h2 class="section-title">Passi Successivi</h2>
 
 <p>
-Maintenant que nous comprenons comment créer des modèles,
-la prochaine étape consiste à connecter ces modèles avec les
-contrôleurs et à implémenter des endpoints API permettant
-aux clients d’interagir avec les données.
+Ora che comprendiamo come creare i modelli, il passo successivo
+è collegare questi modelli ai controller e implementare
+endpoint API che permettano ai client di interagire con i dati.
 </p>
 
 
@@ -266,13 +265,13 @@ Voir le cours (Français)
 <div class="buttons">
 
 <a class="btn curriculum" href="Contenido.html">
-Retour à la page du cours
+Torna alla pagina del corso
 </a>
 
 </div>
 
 <div class="footer">
-Leçon 10 – Cours de développement d’API REST.
+Lezione 10 – Corso di sviluppo API REST.
 </div>
 
 </div>
