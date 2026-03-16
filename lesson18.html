@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJ43JP9F');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lezione 18: Ripristinare un Database con Dati Precaricati</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#dfe7f3);
+color:#2c3e50;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1{
+font-size:36px;
+text-align:center;
+margin-bottom:10px;
+color:#1c355e;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+color:#566573;
+margin-bottom:30px;
+}
+
+.section-title{
+font-size:24px;
+margin-top:35px;
+color:#1c355e;
+border-bottom:2px solid #e6ecf5;
+padding-bottom:10px;
+}
+
+p{
+line-height:1.8;
+margin-top:15px;
+}
+
+ul{
+line-height:1.9;
+margin-top:15px;
+}
+
+.code-box{
+background:#f4f6f9;
+padding:15px;
+border-radius:8px;
+font-family:Consolas, monospace;
+margin-top:15px;
+}
+
+.buttons{
+text-align:center;
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+color:white;
+transition:0.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.english{background:#2c7be5;}
+.portuguese{background:#28a745;}
+.italian{background:#f59e0b;}
+.french{background:#6f42c1;}
+.curriculum{background:#20c997;}
+
+.footer{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+color:#7b8a97;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>Lezione 18: Ripristinare un Database con Dati Precaricati</h1>
+
+<p class="subtitle">
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
+</p>
+
+<p>
+Nello sviluppo di REST API, lavorare con un database correttamente strutturato è essenziale.
+Durante lo sviluppo e i test, spesso è utile ripristinare un database che contiene già
+dati di esempio o dati precaricati. Questo consente agli sviluppatori di testare gli endpoint
+dell'API senza dover inserire manualmente i record ogni volta.
+</p>
+
+<h2 class="section-title">Perché Utilizzare un Backup del Database?</h2>
+
+<p>
+Un file di backup del database consente agli sviluppatori di ricreare rapidamente
+un ambiente di lavoro con tabelle, relazioni e dati di test già configurati.
+</p>
+
+<p>I vantaggi includono:</p>
+
+<ul>
+<li>Sviluppo e test più rapidi</li>
+<li>Dati coerenti per dimostrazioni delle API</li>
+<li>Possibilità di riprodurre problemi durante il debugging</li>
+<li>Configurazione semplificata per nuovi sviluppatori</li>
+</ul>
+
+<h2 class="section-title">Formato Comune di Backup del Database</h2>
+
+<p>
+Negli ambienti SQL Server, i database sono spesso distribuiti come file di backup
+con estensione <strong>.bak</strong>.
+</p>
+
+<div class="code-box">
+Esempio di file: RestApiSampleDatabase.bak
+</div>
+
+<p>
+Questo file contiene la struttura del database, tabelle, relazioni e
+record precaricati necessari affinché l'API funzioni correttamente.
+</p>
+
+<h2 class="section-title">Ripristinare il Database in SQL Server</h2>
+
+<p>
+Per ripristinare un database utilizzando SQL Server Management Studio (SSMS),
+gli sviluppatori possono seguire questi passaggi:
+</p>
+
+<ul>
+<li>Aprire SQL Server Management Studio</li>
+<li>Fare clic con il tasto destro sulla cartella "Databases"</li>
+<li>Selezionare "Restore Database"</li>
+<li>Scegliere il file di backup (.bak)</li>
+<li>Confermare l'operazione di ripristino</li>
+</ul>
+
+<p>
+Una volta ripristinato, il database diventa disponibile per la connessione dell'API.
+</p>
+
+<h2 class="section-title">Collegare la REST API al Database</h2>
+
+<p>
+Dopo aver ripristinato il database, l'API deve essere configurata per utilizzare
+la stringa di connessione corretta.
+</p>
+
+<div class="code-box">
+"ConnectionStrings": {
+ "DefaultConnection":
+ "Server=localhost;Database=RestApiDB;Trusted_Connection=True;"
+}
+</div>
+
+<p>
+Questa configurazione consente all'API di interagire con il database ripristinato
+e accedere ai dati precaricati.
+</p>
+
+<h2 class="section-title">Testare gli Endpoint dell’API con Dati di Esempio</h2>
+
+<p>
+Una volta che il database è stato ripristinato e l'API è connessa,
+gli sviluppatori possono testare endpoint come:
+</p>
+
+<ul>
+<li>GET – Recuperare record esistenti</li>
+<li>POST – Inserire nuovi record</li>
+<li>PUT – Aggiornare record</li>
+<li>DELETE – Eliminare record</li>
+</ul>
+
+<p>
+Avere dati precaricati garantisce che le richieste GET restituiscano
+risultati significativi durante i test.
+</p>
+
+<h2 class="section-title">Buone Pratiche</h2>
+
+<ul>
+<li>Mantenere una versione di backup pulita per lo sviluppo</li>
+<li>Documentare lo schema del database</li>
+<li>Evitare di utilizzare dati di produzione negli ambienti di sviluppo</li>
+<li>Aggiornare i file di backup quando lo schema cambia</li>
+</ul>
+
+<p>
+Seguire queste pratiche aiuta a mantenere ambienti di sviluppo API
+stabili e prevedibili.
+</p>
+
+<h2 class="section-title">Conclusione</h2>
+
+<p>
+Ripristinare un database con dati precaricati accelera notevolmente
+lo sviluppo e il test delle REST API. Garantisce che gli sviluppatori
+possano interagire immediatamente con dati significativi mentre
+costruiscono e risolvono problemi nei loro endpoint.
+</p>
+
+<div class="buttons">
+
+<a class="btn english" href="https://www.udemy.com/course/rest-api-development-build-test-troubleshoot/" target="_blank">
+View Course (English)
+</a>
+
+<a class="btn portuguese" href="https://www.udemy.com/course/desenvolvimento-de-api-rest-construir-testar-solucionar/" target="_blank">
+Ver Curso (Português)
+</a>
+
+<a class="btn italian" href="https://www.udemy.com/course/sviluppo-api-rest-costruisci-testa-risolvi/" target="_blank">
+Vedi Corso (Italiano)
+</a>
+
+<a class="btn french" href="https://www.udemy.com/course/developpement-dapi-rest-construire-tester-depanner/" target="_blank">
+Voir le cours (Français)
+</a>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn curriculum" href="Contenido.html">
+Torna alla pagina del corso
+</a>
+
+</div>
+
+<div class="footer">
+Lezione 18 – Corso di sviluppo REST API.
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
