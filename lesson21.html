@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 <!-- Google Tag Manager -->
@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lecture 21: Defining Custom Routes in GET Methods</title>
+<title>Lezione 21: Definire Rotte Personalizzate nei Metodi GET</title>
 
 <style>
 
@@ -118,36 +118,39 @@ color:#7b8a97;
 <div class="container">
 <div class="card">
 
-<h1>Lecture 21: Defining Custom Routes in GET Methods</h1>
+<h1>Lezione 21: Definire Rotte Personalizzate nei Metodi GET</h1>
 
 <p class="subtitle">
-REST API Development: Build, Test, Troubleshoot
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
 </p>
 
 <p>
-In REST API development, GET methods are used to retrieve resources. While standard GET routes
-allow basic retrieval by ID or listing all items, defining custom routes gives your API
-more flexibility and power.
+Nello sviluppo di REST API, i metodi GET vengono utilizzati per recuperare risorse.
+Mentre le rotte GET standard permettono il recupero di base tramite ID o l'elenco
+di tutti gli elementi, definire rotte personalizzate offre alla tua API
+maggiore flessibilità e potenza.
 </p>
 
-<h2 class="section-title">Why Use Custom GET Routes?</h2>
+<h2 class="section-title">Perché Utilizzare Rotte GET Personalizzate?</h2>
 
 <p>
-Custom routes enable clients to access specific data or perform complex queries
-without requiring multiple filtering steps on the client side.
+Le rotte personalizzate consentono ai client di accedere a dati specifici
+o eseguire query complesse senza richiedere più passaggi di filtraggio
+dal lato client.
 </p>
 
 <ul>
-<li>Provide endpoints for specific queries</li>
-<li>Organize resources in a logical structure</li>
-<li>Reduce client-side filtering and data processing</li>
-<li>Enhance API usability and clarity</li>
+<li>Fornire endpoint per query specifiche</li>
+<li>Organizzare le risorse in una struttura logica</li>
+<li>Ridurre il filtraggio e l'elaborazione dei dati lato client</li>
+<li>Migliorare l'usabilità e la chiarezza dell'API</li>
 </ul>
 
-<h2 class="section-title">Example: Custom GET Route</h2>
+<h2 class="section-title">Esempio: Rotta GET Personalizzata</h2>
 
 <p>
-Suppose you have a products API. A custom route can return only active products in a category:
+Supponiamo di avere un'API di prodotti. Una rotta personalizzata può
+restituire solo i prodotti attivi di una categoria:
 </p>
 
 <div class="code-box">
@@ -155,14 +158,15 @@ GET /api/products/active/electronics
 </div>
 
 <p>
-Here, <code>active</code> and <code>electronics</code> are part of the route, allowing the server
-to return filtered data directly.
+Qui, <code>active</code> e <code>electronics</code> fanno parte della rotta,
+permettendo al server di restituire direttamente dati filtrati.
 </p>
 
-<h2 class="section-title">Implementing Custom Routes in ASP.NET Core</h2>
+<h2 class="section-title">Implementazione di Rotte Personalizzate in ASP.NET Core</h2>
 
 <p>
-In ASP.NET Core, you can define custom GET routes using attribute routing:
+In ASP.NET Core, puoi definire rotte GET personalizzate utilizzando
+l'attributo di routing:
 </p>
 
 <div class="code-box">
@@ -177,25 +181,27 @@ public IActionResult GetActiveProducts(string category)
 </div>
 
 <p>
-This approach maps the URL <code>/api/products/active/electronics</code> to the
-<code>GetActiveProducts</code> method automatically.
+Questo approccio associa automaticamente l'URL
+<code>/api/products/active/electronics</code> al metodo
+<code>GetActiveProducts</code>.
 </p>
 
-<h2 class="section-title">Best Practices</h2>
+<h2 class="section-title">Buone Pratiche</h2>
 
 <ul>
-<li>Keep routes intuitive and descriptive</li>
-<li>Use nouns for resources and avoid verbs in route names</li>
-<li>Document all custom routes clearly for API users</li>
-<li>Ensure route parameters are validated</li>
+<li>Mantenere le rotte intuitive e descrittive</li>
+<li>Utilizzare nomi di risorse (sostantivi) ed evitare verbi nelle rotte</li>
+<li>Documentare chiaramente tutte le rotte personalizzate per gli utenti dell'API</li>
+<li>Assicurarsi che i parametri della rotta siano validati</li>
 </ul>
 
-<h2 class="section-title">Conclusion</h2>
+<h2 class="section-title">Conclusione</h2>
 
 <p>
-Defining custom routes in GET methods makes your REST API more flexible and easier
-for clients to consume. It allows the server to handle complex queries efficiently
-and keeps the API structure organized and logical.
+Definire rotte personalizzate nei metodi GET rende la tua REST API più flessibile
+e più facile da utilizzare per i client. Permette al server di gestire
+efficientemente query complesse e mantiene la struttura dell'API
+organizzata e logica.
 </p>
 
 <div class="buttons">
@@ -221,13 +227,13 @@ Voir le cours (Français)
 <div class="buttons">
 
 <a class="btn curriculum" href="Contenido.html">
-Back to Course Page
+Torna alla pagina del corso
 </a>
 
 </div>
 
 <div class="footer">
-Lecture 21 – REST API Development Course.
+Lezione 21 – Corso di sviluppo REST API.
 </div>
 
 </div>
