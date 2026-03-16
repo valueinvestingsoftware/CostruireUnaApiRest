@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJ43JP9F');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lezione 24: Filtraggio Avanzato GET con Regole di Business</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#dfe7f3);
+color:#2c3e50;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1{
+font-size:36px;
+text-align:center;
+margin-bottom:10px;
+color:#1c355e;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+color:#566573;
+margin-bottom:30px;
+}
+
+.section-title{
+font-size:24px;
+margin-top:35px;
+color:#1c355e;
+border-bottom:2px solid #e6ecf5;
+padding-bottom:10px;
+}
+
+p{
+line-height:1.8;
+margin-top:15px;
+}
+
+ul{
+line-height:1.9;
+margin-top:15px;
+}
+
+.code-box{
+background:#f4f6f9;
+padding:15px;
+border-radius:8px;
+font-family:Consolas, monospace;
+margin-top:15px;
+}
+
+.buttons{
+text-align:center;
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+color:white;
+transition:0.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.english{background:#2c7be5;}
+.portuguese{background:#28a745;}
+.italian{background:#f59e0b;}
+.french{background:#6f42c1;}
+.curriculum{background:#20c997;}
+
+.footer{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+color:#7b8a97;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>Lezione 24: Filtraggio Avanzato GET con Regole di Business</h1>
+
+<p class="subtitle">
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
+</p>
+
+<p>
+In questa lezione esploriamo tecniche avanzate per filtrare richieste GET utilizzando <strong>regole di business</strong>.
+Questi metodi permettono alla tua API di restituire dataset altamente specifici adattati alle esigenze del client.
+</p>
+
+<h2 class="section-title">Perché il Filtraggio Avanzato è Importante</h2>
+
+<p>
+Le query GET di base possono restituire tutti i record o semplici filtri per ID o categoria.
+Il filtraggio avanzato consente alla tua API di applicare la logica di business e ridurre il trasferimento di dati non necessari.
+</p>
+
+<ul>
+<li>Applicare regole di business direttamente sul server</li>
+<li>Ridurre l'elaborazione lato client restituendo solo i dati rilevanti</li>
+<li>Migliorare le prestazioni dell'API e i tempi di risposta</li>
+<li>Fornire risultati più significativi e utilizzabili ai client</li>
+</ul>
+
+<h2 class="section-title">Esempio: Filtraggio con Regole di Business</h2>
+
+<p>
+Supponiamo di avere un'API di e-commerce. Possiamo filtrare i prodotti in base a disponibilità,
+categoria e idoneità allo sconto in una singola richiesta GET:
+</p>
+
+<div class="code-box">
+GET /api/products?category=electronics&inStock=true&discountEligible=true
+</div>
+
+<p>
+Questa richiesta restituisce solo prodotti elettronici disponibili in magazzino
+e idonei agli sconti, permettendo al client di mostrare immediatamente prodotti pertinenti.
+</p>
+
+<h2 class="section-title">Implementazione del Filtraggio Avanzato GET in ASP.NET Core</h2>
+
+<div class="code-box">
+[HttpGet]
+public IActionResult GetProducts([FromQuery] string category, [FromQuery] bool inStock, [FromQuery] bool discountEligible)
+{
+    var products = _db.Products.AsQueryable();
+
+    if(!string.IsNullOrEmpty(category))
+        products = products.Where(p => p.Category == category);
+
+    if(inStock)
+        products = products.Where(p => p.Stock > 0);
+
+    if(discountEligible)
+        products = products.Where(p => p.IsDiscountEligible);
+
+    return Ok(products.ToList());
+}
+</div>
+
+<p>
+L'utilizzo dei parametri di query e del filtraggio condizionale garantisce che l'API
+applichi le regole di business in modo efficiente.
+</p>
+
+<h2 class="section-title">Buone Pratiche</h2>
+
+<ul>
+<li>Utilizzare parametri di query per filtri opzionali</li>
+<li>Mantenere la logica di filtraggio sul server per garantire la coerenza dei dati</li>
+<li>Documentare tutti i filtri disponibili e i loro effetti</li>
+<li>Testare combinazioni di filtri per garantire risultati corretti</li>
+</ul>
+
+<h2 class="section-title">Conclusione</h2>
+
+<p>
+Il filtraggio avanzato delle richieste GET consente alla tua API di restituire risultati
+precisi basati su regole. L'implementazione di queste tecniche migliora le prestazioni,
+rafforza la logica di business e migliora l'esperienza del client.
+</p>
+
+<div class="buttons">
+
+<a class="btn english" href="https://www.udemy.com/course/rest-api-development-build-test-troubleshoot/" target="_blank">
+View Course (English)
+</a>
+
+<a class="btn portuguese" href="https://www.udemy.com/course/desenvolvimento-de-api-rest-construir-testar-solucionar/" target="_blank">
+Ver Curso (Português)
+</a>
+
+<a class="btn italian" href="https://www.udemy.com/course/sviluppo-api-rest-costruisci-testa-risolvi/" target="_blank">
+Vedi Corso (Italiano)
+</a>
+
+<a class="btn french" href="https://www.udemy.com/course/developpement-dapi-rest-construire-tester-depanner/" target="_blank">
+Voir le cours (Français)
+</a>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn curriculum" href="Contenido.html">
+Torna alla pagina del corso
+</a>
+
+</div>
+
+<div class="footer">
+Lezione 24 – Corso di sviluppo REST API.
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
