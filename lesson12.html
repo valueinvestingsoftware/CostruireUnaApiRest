@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 <!-- Google Tag Manager -->
@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lecture 12: GET Method</title>
+<title>Lezione 12: Metodo GET</title>
 
 <style>
 
@@ -118,41 +118,41 @@ color:#7b8a97;
 <div class="container">
 <div class="card">
 
-<h1>Lecture 12: GET Method</h1>
+<h1>Lezione 12: Metodo GET</h1>
 
 <p class="subtitle">
-REST API Development: Build, Test, Troubleshoot
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
 </p>
 
 <p>
-The <strong>GET</strong> method is one of the most commonly used HTTP methods in REST API development.
-It is used to retrieve data from a server without modifying the underlying resource.
+Il metodo <strong>GET</strong> è uno dei metodi HTTP più utilizzati nello sviluppo di REST API.
+Viene utilizzato per recuperare dati da un server senza modificare la risorsa sottostante.
 </p>
 
 <p>
-When a client sends a GET request, the server processes the request and returns the
-requested data, usually formatted as JSON.
+Quando un client invia una richiesta GET, il server elabora la richiesta e restituisce
+i dati richiesti, solitamente formattati in JSON.
 </p>
 
-<h2 class="section-title">Purpose of the GET Method</h2>
+<h2 class="section-title">Scopo del Metodo GET</h2>
 
 <p>
-The main purpose of the GET method is to retrieve information from a REST API.
-It is a read-only operation, meaning it does not create, update, or delete data.
+Lo scopo principale del metodo GET è recuperare informazioni da una REST API.
+È un'operazione di sola lettura, il che significa che non crea, aggiorna o elimina dati.
 </p>
 
-<p>Common examples include:</p>
+<p>Esempi comuni includono:</p>
 
 <ul>
-<li>Retrieving a list of products</li>
-<li>Getting details of a specific customer</li>
-<li>Fetching orders from a database</li>
+<li>Recuperare una lista di prodotti</li>
+<li>Ottenere i dettagli di un cliente specifico</li>
+<li>Recuperare ordini da un database</li>
 </ul>
 
-<h2 class="section-title">Example GET Request</h2>
+<h2 class="section-title">Esempio di Richiesta GET</h2>
 
 <p>
-A typical GET request may look like this:
+Una tipica richiesta GET può apparire così:
 </p>
 
 <div class="code-box">
@@ -160,13 +160,13 @@ GET /api/products
 </div>
 
 <p>
-This request asks the server to return a list of all products.
+Questa richiesta chiede al server di restituire una lista di tutti i prodotti.
 </p>
 
-<h2 class="section-title">Example GET Response</h2>
+<h2 class="section-title">Esempio di Risposta GET</h2>
 
 <p>
-If the request is successful, the server may return a JSON response like this:
+Se la richiesta ha successo, il server può restituire una risposta JSON come questa:
 </p>
 
 <div class="code-box">
@@ -185,13 +185,13 @@ If the request is successful, the server may return a JSON response like this:
 </div>
 
 <p>
-This response contains structured data that the client application can process.
+Questa risposta contiene dati strutturati che l'applicazione client può elaborare.
 </p>
 
-<h2 class="section-title">GET Request for a Specific Resource</h2>
+<h2 class="section-title">Richiesta GET per una Risorsa Specifica</h2>
 
 <p>
-A GET request can also retrieve a single resource by specifying its identifier.
+Una richiesta GET può anche recuperare una singola risorsa specificando il suo identificatore.
 </p>
 
 <div class="code-box">
@@ -199,48 +199,47 @@ GET /api/products/1
 </div>
 
 <p>
-In this case, the server returns only the product with ID 1.
+In questo caso, il server restituisce solo il prodotto con ID 1.
 </p>
 
-<h2 class="section-title">Characteristics of the GET Method</h2>
+<h2 class="section-title">Caratteristiche del Metodo GET</h2>
 
 <ul>
-<li>Used to retrieve data</li>
-<li>Does not modify server resources</li>
-<li>Can be cached by browsers</li>
-<li>Should be safe and idempotent</li>
+<li>Utilizzato per recuperare dati</li>
+<li>Non modifica le risorse del server</li>
+<li>Può essere memorizzato nella cache dai browser</li>
+<li>Dovrebbe essere sicuro e idempotente</li>
 </ul>
 
-<h2 class="section-title">Testing GET Requests</h2>
+<h2 class="section-title">Test delle Richieste GET</h2>
 
 <p>
-Developers often test GET requests using tools such as Postman or a web browser.
-These tools allow sending requests directly to API endpoints and viewing the responses.
+Gli sviluppatori spesso testano le richieste GET utilizzando strumenti come Postman o un browser web.
+Questi strumenti permettono di inviare richieste direttamente agli endpoint API e visualizzare le risposte.
 </p>
 
-<p>Example endpoint tested in Postman:</p>
+<p>Esempio di endpoint testato in Postman:</p>
 
 <div class="code-box">
 https://localhost:5001/api/products
 </div>
 
-<h2 class="section-title">Best Practices</h2>
+<h2 class="section-title">Buone Pratiche</h2>
 
 <ul>
-<li>Use clear and descriptive endpoint names</li>
-<li>Return structured JSON responses</li>
-<li>Use proper HTTP status codes</li>
-<li>Optimize queries for performance</li>
+<li>Utilizzare nomi di endpoint chiari e descrittivi</li>
+<li>Restituire risposte JSON strutturate</li>
+<li>Utilizzare codici di stato HTTP appropriati</li>
+<li>Ottimizzare le query per le prestazioni</li>
 </ul>
 
-<h2 class="section-title">Next Steps</h2>
+<h2 class="section-title">Prossimi Passi</h2>
 
 <p>
-After understanding the GET method, the next step is to implement
-other HTTP methods such as POST, PUT, and DELETE to allow full
-interaction with API resources.
+Dopo aver compreso il metodo GET, il passo successivo è implementare
+altri metodi HTTP come POST, PUT e DELETE per consentire
+un'interazione completa con le risorse dell'API.
 </p>
-
 
 <div class="buttons">
 
@@ -265,13 +264,13 @@ Voir le cours (Français)
 <div class="buttons">
 
 <a class="btn curriculum" href="Contenido.html">
-Back to Course Page
+Torna alla pagina del corso
 </a>
 
 </div>
 
 <div class="footer">
-Lecture 12 – REST API Development Course.
+Lezione 12 – Corso di sviluppo REST API.
 </div>
 
 </div>
