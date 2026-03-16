@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJ43JP9F');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lezione 13: Risoluzione dei problemi di una REST API in Visual Studio con Postman</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#dfe7f3);
+color:#2c3e50;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1{
+font-size:36px;
+text-align:center;
+margin-bottom:10px;
+color:#1c355e;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+color:#566573;
+margin-bottom:30px;
+}
+
+.section-title{
+font-size:24px;
+margin-top:35px;
+color:#1c355e;
+border-bottom:2px solid #e6ecf5;
+padding-bottom:10px;
+}
+
+p{
+line-height:1.8;
+margin-top:15px;
+}
+
+ul{
+line-height:1.9;
+margin-top:15px;
+}
+
+.code-box{
+background:#f4f6f9;
+padding:15px;
+border-radius:8px;
+font-family:Consolas, monospace;
+margin-top:15px;
+}
+
+.buttons{
+text-align:center;
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+color:white;
+transition:0.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.english{background:#2c7be5;}
+.portuguese{background:#28a745;}
+.italian{background:#f59e0b;}
+.french{background:#6f42c1;}
+.curriculum{background:#20c997;}
+
+.footer{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+color:#7b8a97;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>Lezione 13: Risoluzione dei problemi di una REST API in Visual Studio con Postman</h1>
+
+<p class="subtitle">
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
+</p>
+
+<p>
+Durante lo sviluppo di REST API, errori e comportamenti imprevisti sono comuni.
+La risoluzione dei problemi è una competenza essenziale che permette agli sviluppatori
+di identificare rapidamente i problemi e garantire che l'API funzioni correttamente.
+</p>
+
+<p>
+Due degli strumenti più potenti per il debug e il test delle REST API sono
+<strong>Visual Studio</strong> e <strong>Postman</strong>. Insieme permettono agli sviluppatori
+di eseguire l’API localmente, ispezionare l’esecuzione del codice e testare gli endpoint
+con vere richieste HTTP.
+</p>
+
+<h2 class="section-title">Esecuzione dell’API in Visual Studio</h2>
+
+<p>
+Visual Studio permette agli sviluppatori di eseguire e fare debug delle REST API
+direttamente dall’ambiente di sviluppo. Quando l’API viene avviata, normalmente
+viene eseguita su un server locale.
+</p>
+
+<p>Esempio di indirizzo API locale:</p>
+
+<div class="code-box">
+https://localhost:5001
+</div>
+
+<p>
+Questo indirizzo può essere utilizzato per testare gli endpoint tramite strumenti
+come Postman.
+</p>
+
+<h2 class="section-title">Utilizzare i Breakpoint per il Debug</h2>
+
+<p>
+Una delle tecniche di debug più utili in Visual Studio è l’utilizzo dei
+<strong>breakpoint</strong>.
+</p>
+
+<ul>
+<li>Un breakpoint mette in pausa l’esecuzione del codice</li>
+<li>Permette di ispezionare le variabili</li>
+<li>Aiuta a identificare dove si verificano gli errori</li>
+</ul>
+
+<p>
+Ad esempio, posizionare un breakpoint all’interno di un metodo del controller
+permette agli sviluppatori di vedere i valori esatti ricevuti da una richiesta.
+</p>
+
+<h2 class="section-title">Testare l’API con Postman</h2>
+
+<p>
+Postman è uno strumento molto popolare utilizzato per inviare richieste HTTP alle API.
+Permette agli sviluppatori di testare gli endpoint senza dover utilizzare
+un’applicazione frontend.
+</p>
+
+<p>Esempio di richiesta testata in Postman:</p>
+
+<div class="code-box">
+GET https://localhost:5001/api/products
+</div>
+
+<p>
+Dopo aver inviato la richiesta, Postman mostra la risposta del server,
+inclusi i dati JSON restituiti e il codice di stato HTTP.
+</p>
+
+<h2 class="section-title">Problemi Comuni Durante il Test delle API</h2>
+
+<p>
+Durante il test di una REST API, gli sviluppatori possono incontrare diversi problemi comuni:
+</p>
+
+<ul>
+<li>URL degli endpoint non corretti</li>
+<li>Configurazione delle route mancante</li>
+<li>Errori di connessione al database</li>
+<li>Metodi HTTP errati</li>
+<li>Problemi di serializzazione o formattazione JSON</li>
+</ul>
+
+<p>
+Identificare questi problemi nelle fasi iniziali aiuta a mantenere l’API stabile.
+</p>
+
+<h2 class="section-title">Controllo dei Codici di Stato HTTP</h2>
+
+<p>
+Postman mostra anche i codici di stato HTTP restituiti dal server,
+che aiutano a diagnosticare i problemi.
+</p>
+
+<ul>
+<li><strong>200 OK</strong> – Richiesta completata con successo</li>
+<li><strong>400 Bad Request</strong> – Dati della richiesta non validi</li>
+<li><strong>404 Not Found</strong> – Endpoint non trovato</li>
+<li><strong>500 Internal Server Error</strong> – Problema lato server</li>
+</ul>
+
+<p>
+Questi codici forniscono indizi preziosi durante la risoluzione dei problemi delle API.
+</p>
+
+<h2 class="section-title">Buone Pratiche per la Risoluzione dei Problemi</h2>
+
+<ul>
+<li>Testare gli endpoint individualmente</li>
+<li>Usare breakpoint per ispezionare il flusso di esecuzione</li>
+<li>Controllare attentamente i codici di stato HTTP</li>
+<li>Verificare le risposte JSON</li>
+<li>Registrare gli errori quando possibile</li>
+</ul>
+
+<p>
+Seguire queste pratiche rende il debug più rapido ed efficiente.
+</p>
+
+<h2 class="section-title">Prossimi Passi</h2>
+
+<p>
+Dopo aver padroneggiato le tecniche di risoluzione dei problemi,
+gli sviluppatori possono testare e perfezionare con sicurezza le proprie REST API,
+assicurandosi che gli endpoint funzionino correttamente prima di integrarli
+con applicazioni frontend o servizi esterni.
+</p>
+
+<div class="buttons">
+
+<a class="btn english" href="https://www.udemy.com/course/rest-api-development-build-test-troubleshoot/" target="_blank">
+View Course (English)
+</a>
+
+<a class="btn portuguese" href="https://www.udemy.com/course/desenvolvimento-de-api-rest-construir-testar-solucionar/" target="_blank">
+Ver Curso (Português)
+</a>
+
+<a class="btn italian" href="https://www.udemy.com/course/sviluppo-api-rest-costruisci-testa-risolvi/" target="_blank">
+Vedi Corso (Italiano)
+</a>
+
+<a class="btn french" href="https://www.udemy.com/course/developpement-dapi-rest-construire-tester-depanner/" target="_blank">
+Voir le cours (Français)
+</a>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn curriculum" href="Contenido.html">
+Torna alla pagina del corso
+</a>
+
+</div>
+
+<div class="footer">
+Lezione 13 – Corso di sviluppo REST API.
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
