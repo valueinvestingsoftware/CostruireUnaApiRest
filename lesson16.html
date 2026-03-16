@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJ43JP9F');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lezione 16: Metodo PUT</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#dfe7f3);
+color:#2c3e50;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1{
+font-size:36px;
+text-align:center;
+margin-bottom:10px;
+color:#1c355e;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+color:#566573;
+margin-bottom:30px;
+}
+
+.section-title{
+font-size:24px;
+margin-top:35px;
+color:#1c355e;
+border-bottom:2px solid #e6ecf5;
+padding-bottom:10px;
+}
+
+p{
+line-height:1.8;
+margin-top:15px;
+}
+
+ul{
+line-height:1.9;
+margin-top:15px;
+}
+
+.code-box{
+background:#f4f6f9;
+padding:15px;
+border-radius:8px;
+font-family:Consolas, monospace;
+margin-top:15px;
+}
+
+.buttons{
+text-align:center;
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+color:white;
+transition:0.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.english{background:#2c7be5;}
+.portuguese{background:#28a745;}
+.italian{background:#f59e0b;}
+.french{background:#6f42c1;}
+.curriculum{background:#20c997;}
+
+.footer{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+color:#7b8a97;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>Lezione 16: Metodo PUT</h1>
+
+<p class="subtitle">
+Sviluppo REST API: Costruire, Testare, Risolvere Problemi
+</p>
+
+<p>
+Il metodo <strong>PUT</strong> viene utilizzato nelle REST API per aggiornare una risorsa esistente.
+A differenza del metodo POST, che crea nuovi dati, PUT modifica dati che esistono
+già sul server.
+</p>
+
+<p>
+I client inviano informazioni aggiornate all'API e il server sostituisce o aggiorna
+la risorsa esistente con i nuovi valori forniti nella richiesta.
+</p>
+
+<h2 class="section-title">Scopo del Metodo PUT</h2>
+
+<p>
+PUT viene utilizzato quando un client deve aggiornare una risorsa specifica.
+La richiesta include normalmente l'identificatore della risorsa insieme ai nuovi dati.
+</p>
+
+<p>Esempi comuni includono:</p>
+
+<ul>
+<li>Aggiornare informazioni su un prodotto</li>
+<li>Modificare i dettagli di un cliente</li>
+<li>Cambiare lo stato di un ordine</li>
+<li>Modificare le informazioni del profilo utente</li>
+</ul>
+
+<h2 class="section-title">Esempio di Richiesta PUT</h2>
+
+<p>
+Una richiesta PUT viene generalmente inviata a un endpoint specifico che include
+l'identificatore della risorsa da aggiornare.
+</p>
+
+<div class="code-box">
+PUT /api/products/5
+</div>
+
+<p>Corpo della richiesta:</p>
+
+<div class="code-box">
+{
+ "id": 5,
+ "name": "Wireless Mouse",
+ "price": 22,
+ "stock": 60
+}
+</div>
+
+<p>
+Questa richiesta indica al server di aggiornare il prodotto con ID 5
+utilizzando i nuovi valori forniti.
+</p>
+
+<h2 class="section-title">Elaborazione sul Server</h2>
+
+<p>
+Quando il server riceve una richiesta PUT, di solito esegue i seguenti passaggi:
+</p>
+
+<ul>
+<li>Verificare che la risorsa esista</li>
+<li>Validare i dati ricevuti</li>
+<li>Aggiornare il record nel database</li>
+<li>Restituire una risposta al client</li>
+</ul>
+
+<h2 class="section-title">Esempio di Risposta</h2>
+
+<p>
+Se l’aggiornamento ha successo, il server può restituire la risorsa aggiornata
+oppure un messaggio di conferma.
+</p>
+
+<div class="code-box">
+{
+ "id": 5,
+ "name": "Wireless Mouse",
+ "price": 22,
+ "stock": 60
+}
+</div>
+
+<h2 class="section-title">Codici di Stato HTTP per PUT</h2>
+
+<ul>
+<li><strong>200 OK</strong> – Risorsa aggiornata con successo</li>
+<li><strong>204 No Content</strong> – Aggiornamento riuscito senza corpo di risposta</li>
+<li><strong>400 Bad Request</strong> – Dati non validi</li>
+<li><strong>404 Not Found</strong> – Risorsa non trovata</li>
+</ul>
+
+<h2 class="section-title">Testare le Richieste PUT</h2>
+
+<p>
+Gli sviluppatori possono testare le richieste PUT utilizzando strumenti come Postman.
+Questi strumenti permettono di inviare dati JSON nel corpo della richiesta
+e verificare la risposta dell’API.
+</p>
+
+<p>Esempio di endpoint testato in Postman:</p>
+
+<div class="code-box">
+https://localhost:5001/api/products/5
+</div>
+
+<h2 class="section-title">Buone Pratiche</h2>
+
+<ul>
+<li>Validare sempre i dati ricevuti</li>
+<li>Assicurarsi che la risorsa esista prima di aggiornarla</li>
+<li>Restituire codici di stato HTTP appropriati</li>
+<li>Utilizzare strutture JSON chiare e coerenti</li>
+</ul>
+
+<p>
+Seguire queste pratiche aiuta a mantenere una REST API affidabile e prevedibile.
+</p>
+
+<h2 class="section-title">Prossimi Passi</h2>
+
+<p>
+Dopo aver implementato il metodo PUT, il passo successivo è implementare
+il metodo DELETE, che consente di rimuovere risorse e completare
+la piena funzionalità CRUD all’interno dell’API.
+</p>
+
+<div class="buttons">
+
+<a class="btn english" href="https://www.udemy.com/course/rest-api-development-build-test-troubleshoot/" target="_blank">
+View Course (English)
+</a>
+
+<a class="btn portuguese" href="https://www.udemy.com/course/desenvolvimento-de-api-rest-construir-testar-solucionar/" target="_blank">
+Ver Curso (Português)
+</a>
+
+<a class="btn italian" href="https://www.udemy.com/course/sviluppo-api-rest-costruisci-testa-risolvi/" target="_blank">
+Vedi Corso (Italiano)
+</a>
+
+<a class="btn french" href="https://www.udemy.com/course/developpement-dapi-rest-construire-tester-depanner/" target="_blank">
+Voir le cours (Français)
+</a>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn curriculum" href="Contenido.html">
+Torna alla pagina del corso
+</a>
+
+</div>
+
+<div class="footer">
+Lezione 16 – Corso di sviluppo REST API.
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
